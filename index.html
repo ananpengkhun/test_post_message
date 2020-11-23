@@ -8,16 +8,40 @@
 <body>
 
 
-<button onclick="sendEvent()">testsetset</button>
+<button onclick="sendEvent()">FeedViewed.postMessage</button>
+<button onclick="sendEventFeedClicked()">FeedClicked.postMessage</button>
+<button onclick="sendEventFeedSearch()">FeedSearch.postMessage</button>
+<button onclick="sendEventScreenTime()">ScreenTime.postMessage</button>
+<button onclick="sendEventSearched()">Searched.postMessage</button>
+<button onclick="sendEventLeagueViewed()">LeagueViewed.postMessage</button>
 
 
 </body>
 
 <script>
     function sendEvent(){
-        FeedViewed.postMessage("i got this.");
+        FeedViewed.postMessage("FeedViewed");
     }
 
+    function sendEventFeedClicked(){
+      FeedClicked.postMessage("FeedClicked");
+    }
+
+    function sendEventFeedSearch(){
+      FeedSearch.postMessage("FeedSearch");
+    }
+
+    function sendEventScreenTime(){
+      ScreenTime.postMessage("ScreenTime");
+    }
+
+    function sendEventSearched(){
+      Searched.postMessage("Searched");
+    }
+
+    function sendEventLeagueViewed(){
+      LeagueViewed.postMessage("LeagueViewed");
+    }
 
 </script>
 
