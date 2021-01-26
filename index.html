@@ -14,12 +14,19 @@
 <button onclick="sendEventScreenTime()">ScreenTime.postMessage</button>
 <button onclick="sendEventSearched()">Searched.postMessage</button>
 <button onclick="sendEventLeagueViewed()">LeagueViewed.postMessage</button> -->
-
+<button onclick="handleBackToGGApp()">handleBackToGGApp</button>
 
 </body>
 
 <script>
-    ChillPay.postMessage("ChillPay");
+    //ChillPay.postMessage("ChillPay");
+      const handleBackToGGApp = () => {
+    if (typeof (window as WindowWithPrintType).Print === "undefined") {
+      window.location.href = process.env.REACT_APP_GG_APP_URL as string;
+      return;
+    }
+    (window as WindowWithPrintType).Print.postMessage("go_to_gg_app");
+  };
 //     function sendEvent(){
 //         FeedViewed.postMessage("FeedViewed");
 //     }
