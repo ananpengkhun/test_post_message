@@ -49,8 +49,11 @@
     }
     
     function onPrint(){
-//        Print.postMessage("men kub");
-        window.flutter_inappwebview.callHandler('Print', "men kub22222")
+
+        window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+               window.flutter_inappwebview.callHandler('Print', "men kub22222");
+           });
+
     }
 
 </script>
