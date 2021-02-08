@@ -14,12 +14,21 @@
 <button onclick="sendEventScreenTime()">ScreenTime.postMessage</button>
 <button onclick="sendEventSearched()">Searched.postMessage</button>
 <button onclick="sendEventLeagueViewed()">LeagueViewed.postMessage</button> -->
-<button onclick="onPrint()">handleBackToGGApp</button>
+<!-- <button onclick="onPrint()">handleBackToGGApp</button> -->
 
+    
+    <div>clickccccccccc</div>
 </body>
 
 <script>
-    
+    window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+            console.log("ready");
+
+            var div = document.body.querySelector('div');
+            div.addEventListener('click', function() {
+                window.flutter_inappwebview.callHandler('Print', 1, true, ['bar', 5], {foo: 'baz'});
+            });
+        });
 
     
     //ChillPay.postMessage("ChillPay");
@@ -44,18 +53,11 @@
 //       Searched.postMessage("Searched");
 //     }
 
-    function sendEventLeagueViewed(){
-      LeagueViewed.postMessage("LeagueViewed");
-    }
+    //function sendEventLeagueViewed(){
+      //LeagueViewed.postMessage("LeagueViewed");
+//    }
     
-    function onPrint(){
-
-        window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-               window.flutter_inappwebview.callHandler('Print', "men kub22222");
-           });
-
-    }
-
+  
 </script>
 
 </html>
