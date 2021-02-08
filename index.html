@@ -19,6 +19,9 @@
 </body>
 
 <script>
+    
+
+    
     //ChillPay.postMessage("ChillPay");
 //     function sendEvent(){
 //         FeedViewed.postMessage("FeedViewed");
@@ -46,7 +49,8 @@
     }
     
     function onPrint(){
-        Print.postMessage("men kub");
+//        Print.postMessage("men kub");
+        window.flutter_inappwebview.callHandler('Print', "men kub22222")
     }
 
 </script>
