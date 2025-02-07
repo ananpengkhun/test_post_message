@@ -8,22 +8,24 @@
         }
         body {
             zoom: 5;
-            width:50%;
+            /* width:50%;
         margin-left:auto;
-        margin-right:auto;
+        margin-right:auto; */
+        text-align: center;
         }
         
       </style>
 </head>
 
 <body>
-    
 
+    <p id="dataScanner"></p>
 
     <button onclick="onScanner()">Payment</button>
     <br>
-    <div style="height:100px"></div>
+    <div style="height:50px"></div>
 
+    <p id="dataFaceSan"></p>
     <button onclick="onFaceScan()">ยืนยันตัวตน</button>
     <br>
 
@@ -37,16 +39,20 @@
     function onFaceScan(){
       WebBridge.postMessage("facescan");
     }
-      
-      
-    window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
-            console.log("ready");
 
-            var div = document.body.querySelector('div');
-            div.addEventListener('click', function() {
-                window.flutter_inappwebview.callHandler('Print');
-            });
-        });
+  
+    window.addEventListener('load', function() {
+      var params = new URLSearchParams(window.location.search);
+      console.log('All assets are loaded: '+ params.get('isFace'))
+      if(params.get('isFace') == "true"){
+        document.getElementById("dataFaceSan").innerText = params.get('data')
+      }else{
+        document.getElementById("dataScanner").innerText = params.get('data')
+      }
+      
+    })
+      
+      
 
     
     //ChillPay.postMessage("ChillPay");
